@@ -38,3 +38,16 @@ Route::post('/login',[App\Http\Controllers\LoginController::class,'authenticate'
 Route::get('/logout', [App\Http\Controllers\LoginController::class,'logout'])
     ->middleware('auth')
     ->name('logout');
+
+/*
+|--------------------------------------------------------------------------
+| laracast.com
+|--------------------------------------------------------------------------
+|
+|
+*/
+
+
+Route::get('/blog', function () {
+    return view('blog');
+});
