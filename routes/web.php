@@ -49,5 +49,9 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class,'logout'])
 
 
 Route::get('/blog', function () {
-    return view('blog');
+    return view('posts');
+});
+
+Route::get('/post', function () {
+    return view('post');
 });
