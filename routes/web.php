@@ -52,6 +52,17 @@ Route::get('/blog', function () {
     return view('posts');
 });
 
-Route::get('/post', function () {
-    return view('post');
+Route::get('/posts/{post}', function ($slug) {
+    $path = __DIR__ . "/../resources/posts/{$slug}.html";
+
+    if (! file_exists($path)) {
+//        abort(404);
+        return redirect('/blog');
+    }
+
+    $post = file_get_contents($path);
+
+    return view('post',[
+        'post' => $post
+    ]);
 });
